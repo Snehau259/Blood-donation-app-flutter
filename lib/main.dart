@@ -1,5 +1,6 @@
 // import 'dart:js';
 
+import 'package:blood_donation_app/pages/ListDonors.dart';
 import 'package:blood_donation_app/pages/addDonor.dart';
 import 'package:blood_donation_app/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +16,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext buildContext) {
     return MaterialApp(
-      title: "Demo App",
-      // home: Home(),
-      routes: 
-      {'/':(context)=>Home(),'/add':(context) => AddDonor()},
-      initialRoute: '/'
-    );
+        title: "Demo App",
+        // home: Home(),
+        routes: {'/': (context) => Home(), '/add': (context) => AddDonor(),'/list-donors':(context) => ListDonors()},
+        initialRoute: '/');
   }
 }

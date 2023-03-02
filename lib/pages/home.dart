@@ -12,13 +12,13 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Blood Donation", style: TextStyle(fontSize: 30)),
-          backgroundColor: Colors.red[300]),
+          title: Text("Blood Donation", style: TextStyle(fontSize: 25)),
+          backgroundColor: Colors.red[500]),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.pushNamed(context, '/add');
           },
-          backgroundColor: Colors.red[300],
+          backgroundColor: Colors.red[500],
           child: Icon(Icons.add, size: 20)),
     );
   }

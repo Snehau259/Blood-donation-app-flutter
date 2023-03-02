@@ -18,9 +18,9 @@ class AddDonorState extends State<AddDonor> {
         appBar: AppBar(
           title: Text(
             "Add New Donor",
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 25),
           ),
-          backgroundColor: Colors.red[300],
+          backgroundColor: Colors.red[500],
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -57,6 +57,18 @@ class AddDonorState extends State<AddDonor> {
                     onChanged: (value) {
                       donorsBloodGroup = value as String;
                     }),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/list-donors');
+                    },
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.red[500]),
+                        minimumSize: MaterialStatePropertyAll(Size(300, 50))),
+                    child: Text("Submit", style: TextStyle(fontSize: 20))),
               )
             ],
           ),
