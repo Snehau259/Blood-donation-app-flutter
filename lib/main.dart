@@ -1,5 +1,6 @@
-import 'dart:js';
+// import 'dart:js';
 
+import 'package:blood_donation_app/pages/addDonor.dart';
 import 'package:blood_donation_app/pages/home.dart';
 import 'package:flutter/material.dart';
 // import 'package:my_first_flutter_app/widgets/container.dart';
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext buildContext) {
     return MaterialApp(
       title: "Demo App",
-      home: Home(),
-      routes: {'/':(context)=>Home()},
-      initialRoute: '/',
+      // home: Home(),
+      routes: 
+      {'/':(context)=>Home(),'/add':(context) => AddDonor()},
+      initialRoute: '/'
     );
   }
 }
