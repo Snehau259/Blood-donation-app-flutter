@@ -90,7 +90,18 @@ class HomeState extends State<Home> {
                                 children: [
                                   IconButton(
                                       color: Colors.blue[400],
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, '/update',
+                                            arguments: {
+                                              'name': donorSnap['donorName'],
+                                              'phone':
+                                                  donorSnap['contactNumber'].toString(),
+                                              'bloodGroup':
+                                                  donorSnap['bloodGroup'],
+                                                  'id':donorSnap.id
+                                      
+                                            });
+                                      },
                                       icon: Icon(Icons.edit)),
                                   IconButton(
                                       color: Colors.blue[400],

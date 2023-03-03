@@ -1,5 +1,5 @@
 import 'dart:js';
-import 'package:blood_donation_app/pages/ListDonors.dart';
+import 'package:blood_donation_app/pages/UpdateDonors.dart';
 import 'package:blood_donation_app/pages/addDonor.dart';
 import 'package:blood_donation_app/pages/home.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => Home(),
           '/add': (context) => AddDonor(),
-          '/list-donors': (context) => ListDonors()
+          '/update':(context)=>UpdateDonor()
+          // '/list-donors': (context) => ListDonors()
         },
         initialRoute: '/');
   }
