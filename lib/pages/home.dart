@@ -14,7 +14,8 @@ class HomeState extends State<Home> {
       FirebaseFirestore.instance.collection('donor');
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.black,
+    return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
           title: Text("Blood Donation", style: TextStyle(fontSize: 25)),
           backgroundColor: Colors.red[500]),
@@ -75,9 +76,11 @@ class HomeState extends State<Home> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(donorSnap['donorName'],
-                                      style: TextStyle(fontSize: 15,color: Colors.white)),
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white)),
                                   Text(donorSnap['contactNumber'].toString(),
-                                      style: TextStyle(fontSize: 15,color: Colors.white))
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white))
                                 ],
                               ),
                             ),

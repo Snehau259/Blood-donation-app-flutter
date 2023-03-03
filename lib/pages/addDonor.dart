@@ -13,6 +13,20 @@ class AddDonor extends StatefulWidget {
 
 class AddDonorState extends State<AddDonor> {
   final bloodGroups = ["A+ve", "B+ve", "A-ve", "B-ve", "AB+ve", "O+ve", "O-ve"];
+  final CollectionReference donor =
+      FirebaseFirestore.instance.collection('donor');
+  void addDonor() {
+    final data = {
+      'donorName': donorName.text,
+      'bloodGroup': donorsBloodGroup,
+      'contactNumber': contactNumber.text
+    };
+    donor.add(data);
+  }
+
+  TextEditingController donorName = TextEditingController();
+  TextEditingController contactNumber = TextEditingController();
+
   String donorsBloodGroup = "";
   @override
   Widget build(BuildContext context) {
@@ -31,6 +45,7 @@ class AddDonorState extends State<AddDonor> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextField(
+                    controller: donorName,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:
@@ -40,6 +55,7 @@ class AddDonorState extends State<AddDonor> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextField(
+                    controller: contactNumber,
                     keyboardType: TextInputType.number,
                     maxLength: 10,
                     decoration: InputDecoration(
@@ -64,7 +80,8 @@ class AddDonorState extends State<AddDonor> {
                 padding: const EdgeInsets.all(20.0),
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/list-donors');
+                      addDonor();
+                      Navigator.pushNamed(context, '/');
                     },
                     style: ButtonStyle(
                         backgroundColor:
