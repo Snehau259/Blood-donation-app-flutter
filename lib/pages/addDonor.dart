@@ -31,6 +31,7 @@ class AddDonorState extends State<AddDonor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 27, 26, 26),
         appBar: AppBar(
           title: Text(
             "Add New Donor",
@@ -45,30 +46,57 @@ class AddDonorState extends State<AddDonor> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextField(
+                    style: TextStyle(color: Colors.white),
                     controller: donorName,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        filled: true,
+                        fillColor: Colors.black,
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 250, 248, 248)),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
-                        label: Text("Donor Name"))),
+                        contentPadding: EdgeInsets.all(20),
+                        label: Text("Donor Name"),
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 250, 248, 248)))),
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextField(
+                    style: TextStyle(color: Colors.white),
                     controller: contactNumber,
                     keyboardType: TextInputType.number,
                     maxLength: 10,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        filled: true,
+                        fillColor: Colors.black,
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 250, 248, 248)),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
-                        label: Text("Contact Number"))),
+                        contentPadding: EdgeInsets.all(20),
+                        label: Text("Contact Number"),
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 250, 248, 248)))),
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
                 child: DropdownButtonFormField(
-                    decoration:
-                        InputDecoration(label: Text("Select your blood group")),
+                    dropdownColor: Color.fromARGB(255, 56, 55, 55),
+                    style: const TextStyle(
+                      color: Colors.white, //<-- SEE HERE
+                      fontSize: 17,
+                      // fontWeight: FontWeight.bold
+                    ),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.black,
+                        label: Text("Select your blood group",
+                            style: TextStyle(fontSize: 17)),
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 250, 248, 248))),
                     items: bloodGroups
                         .map((e) => DropdownMenuItem(child: Text(e), value: e))
                         .toList(),
