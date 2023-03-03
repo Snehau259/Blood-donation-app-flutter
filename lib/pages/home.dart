@@ -26,7 +26,7 @@ class HomeState extends State<Home> {
           backgroundColor: Colors.red[500],
           child: Icon(Icons.add, size: 20)),
       body: StreamBuilder(
-        stream: donor.snapshots(),
+        stream: donor.orderBy('donorName').snapshots(),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
