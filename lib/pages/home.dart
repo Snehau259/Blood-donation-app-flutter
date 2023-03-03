@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -8,6 +10,8 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  final CollectionReference donor =
+      FirebaseFirestore.instance.collection('donor');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +24,20 @@ class HomeState extends State<Home> {
           },
           backgroundColor: Colors.red[500],
           child: Icon(Icons.add, size: 20)),
+      body: StreamBuilder(
+        stream: donor.snapshots(),
+        builder: (context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (context, index) {
+                  final DocumentSnapshot donorSnap = snapshot.data.docs[index];
+                  return Text(donorSnap['donorName']);
+                });
+          }
+          return Container();
+        },
+      ),
     );
   }
 }

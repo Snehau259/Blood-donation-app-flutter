@@ -1,4 +1,6 @@
 import 'dart:html';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 
@@ -10,7 +12,7 @@ class AddDonor extends StatefulWidget {
 }
 
 class AddDonorState extends State<AddDonor> {
-  final bloodGroups = ["A+ve", "B+ve", "A-ve", "B-ve", "AB+ve"];
+  final bloodGroups = ["A+ve", "B+ve", "A-ve", "B-ve", "AB+ve", "O+ve", "O-ve"];
   String donorsBloodGroup = "";
   @override
   Widget build(BuildContext context) {
