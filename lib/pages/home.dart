@@ -12,6 +12,10 @@ class Home extends StatefulWidget {
 class HomeState extends State<Home> {
   final CollectionReference donor =
       FirebaseFirestore.instance.collection('donor');
+  void deleteDonor(id) {
+    donor.doc(id).delete();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,17 +99,19 @@ class HomeState extends State<Home> {
                                             arguments: {
                                               'name': donorSnap['donorName'],
                                               'phone':
-                                                  donorSnap['contactNumber'].toString(),
+                                                  donorSnap['contactNumber']
+                                                      .toString(),
                                               'bloodGroup':
                                                   donorSnap['bloodGroup'],
-                                                  'id':donorSnap.id
-                                      
+                                              'id': donorSnap.id
                                             });
                                       },
                                       icon: Icon(Icons.edit)),
                                   IconButton(
                                       color: Colors.blue[400],
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        deleteDonor(donorSnap.id);
+                                      },
                                       icon: Icon(Icons.delete))
                                 ],
                               ),
